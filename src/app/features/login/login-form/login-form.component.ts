@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
+  userNameText = 'Votre identifiant';
+  userPasswordText = 'Votre mot de passe';
   constructor() { }
 
   ngOnInit(): void {

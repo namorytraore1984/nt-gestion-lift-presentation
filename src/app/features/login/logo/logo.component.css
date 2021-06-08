@@ -1,3 +1,7 @@
 .bg-primary {
-    background-color: #a593c2 !important;
+    background-color: #06020c !important;
+}
+
+.logo {
+    /*background: url('src/assets/images/pie.png') no-repeat;*/
 }
