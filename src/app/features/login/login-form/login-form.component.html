@@ -1,7 +1,6 @@
 <div class="container">
-    
     <div class="row vh-100">
-        <div class="col-md-4 offset-md-8 col-10 offset-1 shadow p-4 rounded h-75">
+        <div class="col-md-4 offset-md-8 col-10 offset-1 shadow-lg p-4 rounded h-75 border">
             <h1 class="mb-4">Identifiez-vous</h1>
             <form>
                 <div class="input-group mb-4">
@@ -20,19 +19,16 @@
                     </span>
                     <input id="password" type="password" class="form-control form-control-lg" placeholder="{{userPasswordText}}" attr.aria-label="{{userPasswordText}}"/>
                 </div>
-                <div class="text-center">
-                    <button class="btn btn-primary">Connexion</button>
+                <div class="text-center mb-4">
+                    <button class="btn btn-primary btn-lg">Connexion</button>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="idRememberMe">
+                    <label class="form-check-label" for="idRememberMe">
+                      {{rememberMe}}
+                    </label>
                 </div>
             </form>
         </div>
     </div>
-    <!--div class="row">
-        <div class="col-md-6">
-            <form>
-                <div class="form-group mb-3">                   
-                    <input id="userName" type="text" class="form-control" placeholder="{{userNameText}}" attr.aria-label="{{userNameText}}"/>
-                </div>
-            </form>
-        </div>
-    </div-->
 </div>

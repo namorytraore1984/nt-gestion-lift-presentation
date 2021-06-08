@@ -9,6 +9,7 @@ export class LoginFormComponent implements OnInit {
 
   userNameText = 'Votre identifiant';
   userPasswordText = 'Votre mot de passe';
+  rememberMe = 'Se souvenir de moi'
   constructor() { }
 
   ngOnInit(): void {
