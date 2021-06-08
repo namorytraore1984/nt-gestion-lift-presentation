@@ -6,6 +6,7 @@ import { LogoComponent } from './logo/logo.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
   ],
   imports: [
     CommonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    FormsModule
   ]
 })
 export class LoginModule { }

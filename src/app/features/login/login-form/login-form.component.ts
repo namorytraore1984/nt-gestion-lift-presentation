@@ -7,12 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
+  userName = '';
+  password = '';
+  rememberMe = '';
+
   userNameText = 'Votre identifiant';
   userPasswordText = 'Votre mot de passe';
-  rememberMe = 'Se souvenir de moi'
+  rememberMeText = 'Se souvenir de moi'
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  login(formValues: any): void {
+    console.log('Les valeurs fourni par le user');
+    console.log(formValues);
   }
 
 }
