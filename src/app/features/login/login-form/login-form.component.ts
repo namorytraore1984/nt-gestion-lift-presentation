@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  userName = '';
-  password = '';
-  rememberMe = '';
+  userName?: string;
+  password?: string;
+  rememberMe?: boolean;
+  isLoginFormNotValid = false;
 
   userNameText = 'Votre identifiant';
   userPasswordText = 'Votre mot de passe';
@@ -20,9 +22,14 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(formValues: any): void {
+  login(loginForm: NgForm): void {
+    if (loginForm.invalid) {
+      this.isLoginFormNotValid = true;
+      return;
+    }
+    this.isLoginFormNotValid = false;
     console.log('Les valeurs fourni par le user');
-    console.log(formValues);
+    console.log(loginForm.value);
   }
 
 }
