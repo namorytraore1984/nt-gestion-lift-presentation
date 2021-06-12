@@ -9,7 +9,6 @@ const routes: Routes = [
     children: [
       {
         path: 'login',
-        data: {title: 'Page de connexion'},
         component: LoginPageComponent
       }
     ]

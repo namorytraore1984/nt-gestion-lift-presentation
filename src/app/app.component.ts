@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 
 @Component({
@@ -10,9 +11,22 @@ import { Title } from '@angular/platform-browser';
 export class AppComponent implements OnInit {
   title = 'test titre dynamique';
 
-  constructor(private titleService: Title) {}
+  constructor(private router : Router, private route: ActivatedRoute, private titleService: Title) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle(this.title);
+    this.changeTitle();
+  }
+
+  private changeTitle() : void {
+    this.router.events.subscribe(event => {
+      switch(true) {
+        case event instanceof NavigationEnd:
+          let child = this.route.firstChild;
+          while(child?.firstChild) {
+            child = child.firstChild;
+          }
+          this.titleService.setTitle(child?.snapshot.data.title);
+      }
+    })
   }
 }
