@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-login-form',
@@ -17,7 +19,7 @@ export class LoginFormComponent implements OnInit {
   userPasswordText = 'Votre mot de passe';
   rememberMeText = 'Se souvenir de moi'
 
-  constructor() { }
+  constructor(private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -28,8 +30,19 @@ export class LoginFormComponent implements OnInit {
       return;
     }
     this.isLoginFormNotValid = false;
-    console.log('Les valeurs fourni par le user');
-    console.log(loginForm.value);
+    this.authService.loginUser(loginForm.value.userName, loginForm.value.password);
+    if (this.authService.isAuthenticated()) {
+      if (this.authService.isSimpleUser()) {
+        this.router.navigate(['/user']);
+      } else if (this.authService.isAdminUser()) {
+        this.router.navigate(['/admin']);
+      } else {
+        // Navigate vers la page d'erreur
+      }
+    } else {
+      this.isLoginFormNotValid = true;
+      return;
+    }
   }
 
 }
